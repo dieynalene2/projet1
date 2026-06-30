@@ -79,7 +79,27 @@
          ];
 
          $categories[] = $categorie;
+    //4
+     $categorieExiste =  false;
+          $code = readline("donner le code :");
+             foreach ($categories as $index => $categorie ) {
+               if (($categorie["code"]) === $code) {
+                    $categorieExiste = true;
+                    break;
+         }
+       } 
 
+       if ($categorieExiste) {
+        $produit =   [
+                    "nom" => readline("donner le nom : "),
+                    "reference" => readline("donner la reference : "),
+                    "prix" => (int)readline("donner le prix : "),
+                    "quantite" => (int)readline("donner la quantité : ")
+                  ] ;
+          $categories[$index]["produits"][] = $produit;
+       }else {
+          echo " désolé , la categorie n'existe pas...";
+       }
 
 
 
