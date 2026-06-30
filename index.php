@@ -25,6 +25,12 @@
             "produits" => []
          ]
         ];
+          //2
+    foreach ($categories as  $categorie ) {
+    if (empty($categorie["produits"])) {
+         echo $categorie["nom"]."\n";
+    }
+ }
   
 
 
