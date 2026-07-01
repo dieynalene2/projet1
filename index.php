@@ -43,7 +43,7 @@ $categories = [
  }
 
 
-
+    //3
 
  function champObligatoire(string $value,string $message): bool{
     if (empty($value)) {
@@ -53,5 +53,28 @@ $categories = [
         return true;
  }
 
+
+//4
+function rechercheCategorieParCle(array $categories, string $key, string $value): int|bool {
+    foreach ($categories as $index  => $categorie ) {
+        if (($categorie[$key]) === $value) {
+            return $index ;
+        }
+    } 
+    return false;
+ }
+
+ function saisieChampObligatoireEtUnique(array $categories,string $smsSaisie, string $smsError,string $key): string{
+        
+    $valueIsValid = true;
+    do {   
+        $value = saisieChaine($smsSaisie);
+        $valueIsValid = champObligatoire($value,$smsError);
+        if($valueIsValid){     
+            $valueIsValid =rechercheCategorieParCle($categories,$key,$value);
+        }
+    } while (!$valueIsValid);
+    return $value;
+ }
 
 ?>
