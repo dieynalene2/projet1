@@ -76,5 +76,22 @@ function rechercheCategorieParCle(array $categories, string $key, string $value)
     } while (!$valueIsValid);
     return $value;
  }
+    //5
+     function enregistrerCategorie(): void{
+    global $categories;
+    $code = saisieChampObligatoireEtUnique($categories,"Entrez le code :", "champs obligatoire : ", "code");
+    $nom = saisieChampObligatoireEtUnique($categories,"Entrez le nom :", "champs obligatoire : ", "nom");
 
+    $categorie  =   [
+            "code" => $code,
+            "nom" => $nom,
+            "produits" => []
+         ];
+
+    $categories[] = $categorie;
+ }
+
+
+
+?>
 ?>
